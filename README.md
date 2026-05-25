@@ -1,22 +1,37 @@
-# Stock-Tracker
-A beginner Python stock tracker app using yfinance to fetch live stock data and calculate daily price changes.
-
 # Stock Tracker
 
-A beginner Python stock tracker app using yfinance to fetch live stock data and calculate daily price changes.
+A Python-based stock analysis and visualization tool that fetches live market data using yfinance.
 
 ## Features
+
 - Fetch live stock data
-- Calculate daily percentage change
-- Detect positive/negative stock movement
+- Calculate daily percentage changes
+- Show bullish/bearish market status
+- Calculate average closing prices
+- Display highest and lowest closing prices
+- Generate stock price visualizations
+- Plot moving averages for trend analysis
 
 ## Technologies Used
+
 - Python
 - yfinance
+- matplotlib
 - Git/GitHub
 
+## Concepts Learned
+
+- APIs
+- Data visualization
+- Rolling averages
+- Financial analytics
+- Time-series plotting
+- Git version control
+
 ## Future Improvements
-- Compare multiple stocks
-- Add stock graphs
-- AI stock insights
-- Web interface
+
+- Web app using Flask
+- Interactive UI
+- AI-powered stock insights
+- Multiple stock comparison
+- Portfolio tracking
