@@ -1,6 +1,14 @@
+<head>
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+</head>
+
 <h1>Stock Tracker</h1>
-<form method="post">
+<div class="form-container">
+    <form method="post">
     <input type="text" name="ticker" placeholder="Enter Stock Ticker">
     <input type="number" name="days" placeholder="Enter Number Of Days">
     <button type="submit">Analyse</button>
 </form>
+
+</div>
+

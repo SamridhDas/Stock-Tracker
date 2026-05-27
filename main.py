@@ -6,6 +6,8 @@ def analyse(ticker,days):
 
     period=days+"d"
     data=stock.history(period=period)
+    if data.empty:
+        return None
     latest_open=data["Open"].iloc[-1]
     latest_close=data["Close"].iloc[-1]
     perchange=((latest_close-latest_open)/latest_open)*100
@@ -43,7 +45,7 @@ def plot_graph(data,ticker,moving_average):
     plt.xlabel("Date")
     plt.xticks(rotation=45)
     plt.ylabel("Closing Price")
-    plt.savefig("stock_chart.png")
+    plt.savefig("static/stock_chart.png")
     plt.close()
 
     

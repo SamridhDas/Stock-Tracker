@@ -1,8 +1,30 @@
+
+<head>
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+</head>
+
 <h1>Stock Analysis Results</h1>
 
-<p>Latest Price: ${{ "%.2f"|format(latest_close) }}</p>
-<p>Percentage Change: {{ per_sign}}{{ "%.2f"|format(perchange) }}%</p>
-<p>Average Close: ${{"%.2f"|format(average_close) }}</p>
-<p>Highest Close: ${{ "%.2f"|format(max_closing_price) }}</p>
-<p>Lowest Close: ${{ "%.2f"|format(min_closing_price) }}</p>
-<p>Market Status: {{ status }}</p>
+{% if error %}
+    <h2>{{error}}</h2>
+{% endif %}
+
+{% if not error %}
+
+<div class="container">
+    <div class="info-card">
+        <p>Latest Price: ${{ "%.2f"|format(latest_close) }}</p>
+        <p>Percentage Change: {{ per_sign}}{{ "%.2f"|format(perchange) }}%</p>
+        <p>Average Close: ${{"%.2f"|format(average_close) }}</p>
+        <p>Highest Close: ${{ "%.2f"|format(max_closing_price) }}</p>
+        <p>Lowest Close: ${{ "%.2f"|format(min_closing_price) }}</p>
+        <p>Market Status: {{ status }}</p>
+    </div>
+    <div class="graph-card">
+        <img src="{{url_for('static',filename='stock_chart.png')}}" width="700">
+
+    </div>
+</div>
+
+
+{% endif %}
