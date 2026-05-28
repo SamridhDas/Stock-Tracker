@@ -1,8 +1,9 @@
 body{
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     background-color:#121212;
     color:white;
-    margin:40px;
+    margin:0px;
+    padding:40px;
 }
 
 h1{
@@ -22,6 +23,9 @@ input{
     margin:5px;
     border-radius:5px;
     border:none;
+    width:350px;
+
+
 }
 
 button{
@@ -48,6 +52,15 @@ img{
     align-items:flex-start;
     margin-top:30px;
 }
+.info-section{
+    display:flex;
+    justify-content: center;
+    flex-direction:row;
+    gap:25px;
+    flex-wrap:wrap;
+    margin-bottom:40px;
+
+}
 
 .info-card{
     background-color:#1e1e1e;
@@ -57,8 +70,10 @@ img{
 }
 
 .graph-card{
-    background-color:#1e1e1e;
-    padding:20px;
+    display:flex;
+    
+    
+    padding: 90px;
     border-radius:10px;
 }
 
@@ -68,3 +83,8 @@ img{
     margin: top 40px;
 
 }
+.container2{
+    display:flex;
+
+}
+

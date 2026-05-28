@@ -5,22 +5,20 @@ app=Flask(__name__)
 @app.route("/",methods=["GET","POST"])
 def home():
     if request.method=="POST":
-        ticker=request.form["ticker"]
+        ticker_input=request.form["ticker"]
+        tickers=ticker_input.split(",")
+        tickers=[ticker.strip().upper() for ticker in tickers]
+
         days=request.form["days"]
-        result=analyse(ticker,days)
+
+        result=analyse(tickers,days)
         if result is None:
             return render_template("result.html",error="Invalid Ticker")
 
-        latest_close, perchange,per_sign, average_close, max_closing_price, min_closing_price, status=result
+        
         return render_template(
-        "result.html",
-        latest_close=latest_close,
-        perchange=perchange,
-        per_sign=per_sign,
-        average_close=average_close,
-        max_closing_price=max_closing_price,
-        min_closing_price=min_closing_price,
-        status=status
+        "result.html",stock_summaries=result
+       
         )
         
 

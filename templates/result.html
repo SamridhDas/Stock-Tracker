@@ -1,30 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Stock Analysis Results</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
 </head>
 
-<h1>Stock Analysis Results</h1>
+<body>
 
-{% if error %}
-    <h2>{{error}}</h2>
-{% endif %}
+    <h1>Stock Analysis Results</h1>
 
-{% if not error %}
+    {% if error %}
 
-<div class="container">
-    <div class="info-card">
-        <p>Latest Price: ${{ "%.2f"|format(latest_close) }}</p>
-        <p>Percentage Change: {{ per_sign}}{{ "%.2f"|format(perchange) }}%</p>
-        <p>Average Close: ${{"%.2f"|format(average_close) }}</p>
-        <p>Highest Close: ${{ "%.2f"|format(max_closing_price) }}</p>
-        <p>Lowest Close: ${{ "%.2f"|format(min_closing_price) }}</p>
-        <p>Market Status: {{ status }}</p>
-    </div>
-    <div class="graph-card">
-        <img src="{{url_for('static',filename='stock_chart.png')}}" width="700">
+        <h2>{{ error }}</h2>
 
-    </div>
-</div>
+    {% endif %}
+
+    {% if not error %}
+    
+=
+
+        <div class="info-section">
+            {% for stock in stock_summaries %}
+            
+
+            <div class="info-card">
+
+            <h2>{{ stock.ticker }}</h2>
+
+            <p>
+                Latest Price:
+                ${{ "%.2f"|format(stock.latest_close) }}
+            </p>
+
+            <p>
+                Percentage Change:
+                {{ stock.per_sign }}
+                {{ "%.2f"|format(stock.perchange) }}%
+            </p>
+
+            <p>
+                Average Close:
+                ${{ "%.2f"|format(stock.average_close) }}
+            </p>
+
+            <p>
+                Highest Close:
+                ${{ "%.2f"|format(stock.max_closing_price) }}
+            </p>
+
+            <p>
+                Lowest Close:
+                ${{ "%.2f"|format(stock.min_closing_price) }}
+            </p>
+
+            <p>
+                Market Status:
+                {{ stock.status }}
+            </p>
+
+            </div>
+
+            {% endfor %}
+        
 
 
-{% endif %}
+
+    
+        
+        <div class="graph-card">
+            <img src="{{ url_for('static', filename='stock_chart.png') }}" width="900">
+        </div>
+  
+
+    {% endif %}
+
+
+</body>
+</html>

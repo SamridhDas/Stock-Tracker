@@ -1,14 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Stock Tracker</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
 </head>
 
-<h1>Stock Tracker</h1>
-<div class="form-container">
-    <form method="post">
-    <input type="text" name="ticker" placeholder="Enter Stock Ticker">
-    <input type="number" name="days" placeholder="Enter Number Of Days">
-    <button type="submit">Analyse</button>
-</form>
+<body>
 
-</div>
+    <h1>Stock Tracker</h1>
+
+    <div class="form-container">
+
+        <form method="POST">
+
+            <input type="text"
+                   name="ticker"
+                   placeholder="Enter Stock Tickers (AAPL,MSFT,GOOGL)">
+
+            <input type="number"
+                   name="days"
+                   placeholder="Enter Number Of Days">
+
+            <button type="submit">
+                Analyse
+            </button>
+
+        </form>
+
+    </div>
+
+</body>
+</html>
 
