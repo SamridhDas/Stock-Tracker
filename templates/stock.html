@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Stock Tracker</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+
+    <h1>
+        {{ stock_data.ticker }} Analysis
+    </h1>
+
+    <h2>
+        {{ stock_data.company_name }}
+    </h2>
+
+    <section class="stock-overview">
+
+        <div class="info-card">
+
+            <h3>Current Price</h3>
+
+            <p>
+                ${{ stock_data.current_price }}
+            </p>
+
+        </div>
+
+        <div class="info-card">
+
+            <h3>Market Cap</h3>
+
+            <p>
+                {{ stock_data.market_cap }}
+            </p>
+
+        </div>
+
+        <div class="info-card">
+
+            <h3>52 Week High</h3>
+
+            <p>
+                ${{ stock_data.fifty_two_high }}
+            </p>
+
+        </div>
+
+        <div class="info-card">
+
+            <h3>52 Week Low</h3>
+
+            <p>
+                ${{ stock_data.fifty_two_low }}
+            </p>
+
+        </div>
+
+    </section>
+
+</body>

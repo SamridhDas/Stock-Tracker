@@ -1,12 +1,12 @@
 import yfinance as yf
 import matplotlib.pyplot as plt
 
+
 def analyse(tickers, days):
 
     all_data = {}
 
     for ticker in tickers:
-
         stock = yf.Ticker(ticker)
 
         data = stock.history(period=days + "d")
@@ -16,88 +16,124 @@ def analyse(tickers, days):
 
         all_data[ticker] = data
 
-    stock_summaries=[]
-    for ticker,data in all_data.items():
-            latest_open = data["Open"].iloc[-1]
+    stock_summaries = []
 
-            latest_close = data["Close"].iloc[-1]
+    for ticker, data in all_data.items():
+        
 
-            perchange = ((latest_close - latest_open) / latest_open) * 100
+        starting_price = data["Close"].iloc[0]
+        ending_price = data["Close"].iloc[-1]
 
-            if perchange > 0:
-                per_sign = "+"
-            else:
-                per_sign = ""
+        total_growth = (
+            (ending_price - starting_price)
+            / starting_price
+        ) * 100
 
-            
+        if total_growth > 0:
+            per_sign = "+"
+            status = "Bullish"
 
-            average_close = data["Close"].mean()
+        elif total_growth < 0:
+            per_sign = ""
+            status = "Bearish"
 
-            max_closing_price = data["Close"].max()
+        else:
+            per_sign = ""
+            status = "No Change"
 
-            min_closing_price = data["Close"].min()
+        average_close = data["Close"].mean()
 
-            if perchange > 0:
-                status = "Bullish"
+        max_closing_price = data["Close"].max()
 
-            elif perchange < 0:
-                status = "Bearish"
+        min_closing_price = data["Close"].min()
 
-            else:
-                status = "No Change"
-            stock_summaries.append({
+        stock_summaries.append({
 
-                "ticker": ticker,
+            "ticker": ticker,
 
-                "latest_close": latest_close,
+            "latest_close": ending_price,
 
-                "perchange": perchange,
+            "total_growth": total_growth,
 
-                "per_sign": per_sign,
+            "per_sign": per_sign,
 
-                "average_close": average_close,
+            "average_close": average_close,
 
-                "max_closing_price": max_closing_price,
+            "max_closing_price": max_closing_price,
 
-                "min_closing_price": min_closing_price,
+            "min_closing_price": min_closing_price,
 
-                "status": status
-            })
+            "status": status
+        })
 
+    best_stock = max(
+        stock_summaries,
+        key=lambda stock: stock["total_growth"]
+    )
 
+    worst_stock = min(
+        stock_summaries,
+        key=lambda stock: stock["total_growth"]
+    )
 
+    average_change = sum(
+        stock["total_growth"]
+        for stock in stock_summaries
+    ) / len(stock_summaries)
 
- 
+    most_expensive = max(
+        stock_summaries,
+        key=lambda stock: stock["latest_close"]
+    )
 
     plot_graph(all_data)
-    return(stock_summaries)
 
+    return {
+
+        "stock_summaries": stock_summaries,
+
+        "insights": {
+
+            "best_stock": best_stock,
+
+            "worst_stock": worst_stock,
+
+            "average_change": average_change,
+
+            "most_expensive": most_expensive
+        }
+    }
 
 
 def plot_graph(all_data):
 
-    plt.figure(figsize=(12,8))
+    plt.figure(figsize=(12, 8))
 
     plt.grid()
 
     for ticker, data in all_data.items():
 
+        normalized_prices = (
+            data["Close"] / data["Close"].iloc[0]
+        ) * 100
+
         plt.plot(
             data.index,
-            data["Close"],
+            normalized_prices,
             label=ticker
         )
 
     plt.legend()
 
-    plt.title("Stock Comparison")
+    plt.title("Relative Stock Performance")
 
     plt.xlabel("Date")
 
-    plt.ylabel("Closing Price")
+    plt.ylabel("Normalized Growth")
 
     plt.xticks(rotation=45)
 
     plt.savefig("static/stock_chart.png")
 
     plt.close()
+

@@ -1,166 +1,117 @@
-# Stock Tracker Dashboard
+# StockStalk 📈
 
-A full-stack stock market analytics dashboard built using Flask, Python, and financial market APIs.
-The application fetches live market data, performs analytical calculations, generates dynamic visualizations, and presents insights through a responsive dashboard-style interface.
-
----
+StockStalk is a modern stock analytics platform built using Flask, Python, and yFinance. The platform allows users to compare multiple stocks, visualize relative market performance, and explore detailed individual stock analytics through interactive dashboards.
 
 ## Features
 
-### Market Data & Analytics
+### Compare Stocks Dashboard
 
-* Live stock market data retrieval using yfinance
-* Multi-stock comparison support
-* Percentage change calculations
-* Bullish/Bearish trend detection
-* Average closing price analysis
-* Highest and lowest closing price analytics
-* Rolling moving average calculations
+* Compare multiple stocks side-by-side
+* Interactive normalized performance graphs
+* Relative growth comparison
+* Performance insights panel
+* Best/Worst performer analytics
+* Dynamic multi-stock visualization
 
----
+### Individual Stock Analysis
 
-### Data Visualization
+* Dedicated stock analysis pages
+* Company overview metrics
+* Current price tracking
+* 52-week high and low
+* Market capitalization insights
+* Dynamic routing for stock-specific pages
 
-* Dynamic stock comparison graphs
-* Multi-line comparative price visualization
-* Real-time graph generation using matplotlib
-* Dashboard-style analytics cards
+### Modern UI/UX
 
----
+* Responsive dashboard layout
+* Dark theme design
+* Interactive hover animations
+* SaaS-style landing page
+* Feature showcase sections
+* Structured navigation system
 
-### Web Application Features
-
-* Flask backend with dynamic routing
-* Jinja templating engine
-* Dynamic rendering of stock analytics
-* Error handling for invalid stock tickers
-* Responsive UI with Flexbox
-* Dark-themed dashboard interface
-
----
-
-## Technologies Used
+## Tech Stack
 
 ### Backend
 
 * Python
 * Flask
+* yFinance
 
 ### Frontend
 
 * HTML
 * CSS
 * Flexbox
-* Jinja Templates
 
-### Data & Visualization
+### Data Visualization
 
-* yfinance API
-* Pandas
-* matplotlib
+* Matplotlib
 
-### Development Tools
+## Architecture
 
-* Git
-* GitHub
-
----
-
-## Project Architecture
+The application follows a multi-page structure:
 
 ```text
-stock_tracker/
-│
-├── static/
-│   ├── stock_chart.png
-│   └── style.css
-│
-├── templates/
-│   ├── index.html
-│   └── result.html
-│
-├── app.py
-├── main.py
-├── requirements.txt
-└── README.md
+/               → Landing Page
+/compare        → Stock Comparison Tool
+/stock/<ticker> → Individual Stock Analysis
 ```
 
----
+## Current Analytics Features
 
-## Current Functionality
+* Relative stock growth normalization
+* Comparative performance analysis
+* Average growth calculations
+* Most expensive stock tracking
+* Market trend insights
+* Performance summaries
 
-Users can:
+## Planned Features
 
-1. Enter multiple stock tickers
-2. Choose analysis duration
-3. Compare stock performance visually
-4. View analytics for each stock individually
-5. Analyze:
-
-   * Latest price
-   * Percentage change
-   * Average closing price
-   * Highest/lowest close
-   * Market status
-6. Generate comparative stock graphs dynamically
-
----
-
-## Software Engineering Concepts Learned
-
-### Backend Engineering
-
-* Flask routing
-* Request handling
-* Dynamic data processing
-* Modular application structure
-* Error handling
-
-### Frontend Engineering
-
-* Responsive layouts
-* Flexbox systems
-* Dynamic template rendering
-* Dashboard UI design
-
-### Data Engineering
-
-* Financial API integration
-* Data transformation
-* Dictionary/list-based data structures
-* Comparative analytics
-
-### Visualization
-
-* Dynamic graph generation
-* Multi-stock plotting
-* Time-series visualization
-
-### Development Workflow
-
-* Git version control
-* Incremental feature development
-* Refactoring
-* Architecture scaling
-
----
-
-## Future Improvements
-
-* Normalized stock performance comparison
-* Interactive charts
-* Candlestick visualizations
-* Technical indicators (RSI, MACD, Volatility)
+* Candlestick charts
+* RSI indicators
+* Volatility analysis
+* Moving averages
+* MACD analysis
+* AI-powered stock insights
 * Portfolio tracking
-* User authentication
-* Database integration
-* Cloud deployment
-* AI-powered market insights
-
----
+* Market news integration
 
 
 
-## Author
+## Learning Outcomes
 
-Built by Samridh Das as part of a software engineering and financial analytics learning journey.
+This project helped develop skills in:
+
+* Flask web development
+* Dynamic routing
+* Backend architecture
+* Data visualization
+* Dashboard UI design
+* API integration
+* Responsive layouts
+* State/data structuring
+
+## Installation
+
+```bash
+git clone <your-repository-link>
+
+cd StockStalk
+
+pip install -r requirements.txt
+
+python app.py
+```
+
+## Future Vision
+
+StockStalk is evolving into a complete financial analytics platform focused on:
+
+* intelligent market visualization
+* technical analysis
+* AI-driven insights
+* interactive financial dashboards
+* scalable analytics systems

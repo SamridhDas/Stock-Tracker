@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Compare Stocks</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <h1>Compare Stocks</h1>
+
+    <div class="form-container">
+
+        <form method="post">
+
+            <input type="text"
+                   name="ticker"
+                   placeholder="Enter Stock Tickers (AAPL,TSLA,GOOGL)">
+
+            <input type="number"
+                   name="days"
+                   placeholder="Enter Number Of Days">
+
+            <button type="submit">
+
+                Analyse
+
+            </button>
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>

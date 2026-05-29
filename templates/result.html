@@ -27,60 +27,107 @@
 
     {% if not error %}
     
-=
 
-        <div class="info-section">
-            {% for stock in stock_summaries %}
+        <div class="dashboard">
+            <div class="info-section">
+            {% for stock in results.stock_summaries %}
             
+            <a href="/stock/{{stock.ticker}}" class="card-link">
+                <div class="info-card">
 
-            <div class="info-card">
+                <h2>{{ stock.ticker }}</h2>
 
-            <h2>{{ stock.ticker }}</h2>
+                <p>
+                    Latest Price:
+                    ${{ "%.2f"|format(stock.latest_close) }}
+                </p>
 
-            <p>
-                Latest Price:
-                ${{ "%.2f"|format(stock.latest_close) }}
-            </p>
+                <p>
+                    <strong>Total Growth:</strong>
+                    <span class="
+                        {% if stock.total_growth > 0 %}
+                            positive
+                        {% else %}
+                            negative
+                        {% endif %}
+                    ">
+                        
+                        {{ stock.per_sign }}
+                        {{ "%.2f"|format(stock.total_growth) }}%
 
-            <p>
-                Percentage Change:
-                {{ stock.per_sign }}
-                {{ "%.2f"|format(stock.perchange) }}%
-            </p>
+                    </span>
+                    
+                </p>
 
-            <p>
-                Average Close:
-                ${{ "%.2f"|format(stock.average_close) }}
-            </p>
+                <p>
+                    Average Close:
+                    ${{ "%.2f"|format(stock.average_close) }}
+                </p>
 
-            <p>
-                Highest Close:
-                ${{ "%.2f"|format(stock.max_closing_price) }}
-            </p>
+                <p>
+                    Highest Close:
+                    ${{ "%.2f"|format(stock.max_closing_price) }}
+                </p>
 
-            <p>
-                Lowest Close:
-                ${{ "%.2f"|format(stock.min_closing_price) }}
-            </p>
+                <p>
+                    Lowest Close:
+                    ${{ "%.2f"|format(stock.min_closing_price) }}
+                </p>
 
-            <p>
-                Market Status:
-                {{ stock.status }}
-            </p>
+                <p>
+                    Market Status:
+                    {{ stock.status }}
+                </p>
 
-            </div>
+                </div>
 
             {% endfor %}
+            </div>
+        </a>
+
+            <h2 class="section-title">
+                Market Performance Overview
+            </h2>
         
 
 
 
     
-        
-        <div class="graph-card">
-            <img src="{{ url_for('static', filename='stock_chart.png') }}" width="900">
+            <section class="round2">
+                <div class="graph-card">
+                <img src="{{ url_for('static', filename='stock_chart.png') }}" width="900">
+                </div>
+
+                <div class="side_panel">
+                    <h2>Insights</h2>
+                    <p>
+                        Best Perfomer: {{results.insights.best_stock.ticker}}
+                    </p>
+                    <p>
+                        Worst Performer: {{ results.insights.worst_stock.ticker }}
+                    </p>
+                    <p>
+                        Average Change: {{ "%.2f"|format(results.insights.average_change) }}%
+                    </p>
+                    <p>
+                        Most Expensive: {{ results.insights.most_expensive.ticker }}
+                    </p>
+                    <p>
+                        Total Stocks: {{ results.stock_summaries|length }}
+            
+                    </p>
+
+
+
+                </div>
+    
+            </section>
+
         </div>
-  
+        
+
+        
+        
 
     {% endif %}
 

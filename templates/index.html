@@ -8,7 +8,7 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>Stock Tracker</title>
+    <title>StockStalk</title>
 
     <link rel="stylesheet"
           href="{{ url_for('static', filename='style.css') }}">
@@ -17,28 +17,122 @@
 
 <body>
 
-    <h1>Stock Tracker</h1>
+    <nav class="navbar">
 
-    <div class="form-container">
+        <h2 class="logo">
+            StockStalk
+        </h2>
 
-        <form method="POST">
+        <div class="nav-links">
 
-            <input type="text"
-                   name="ticker"
-                   placeholder="Enter Stock Tickers (AAPL,MSFT,GOOGL)">
+            <a href="/">Home</a>
 
-            <input type="number"
-                   name="days"
-                   placeholder="Enter Number Of Days">
+            <a href="/compare">
+                Compare Stocks
+            </a>
 
-            <button type="submit">
-                Analyse
-            </button>
+            <a href="/compare">
+                Individual Analysis
+            </a>
 
-        </form>
+        </div>
+
+    </nav>
+
+    <section class="hero">
+
+        <div class="hero-left">
+
+            <h1>
+                Professional Stock Analytics Platform
+            </h1>
+
+            <p>
+                Compare stocks, analyze market trends,
+                and explore advanced technical indicators
+                using interactive dashboards.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="/compare"
+                   class="primary-btn">
+
+                    Start Analyzing
+
+                </a>
+
+                <a href="/compare"
+                   class="secondary-btn">
+
+                    Explore Features
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="hero-right">
+
+            <img src="{{ url_for('static', filename='preview.png') }}"
+                 class="hero-image">
+
+        </div>
+
+    </section>
+    <section class="features-section">
+
+    <div class="feature-card">
+
+        <h2>
+            Compare Stocks
+        </h2>
+
+        <p>
+            Analyze multiple stocks side-by-side using
+            interactive growth charts, performance tracking,
+            and normalized comparisons to understand
+            which companies are outperforming the market
+            over different time periods.
+        </p>
 
     </div>
 
-</body>
-</html>
+    <div class="feature-card">
 
+        <h2>
+            Individual Analysis
+        </h2>
+
+        <p>
+            Explore detailed stock analytics including
+            candlestick charts, moving averages,
+            RSI indicators, volatility measurements,
+            and technical insights designed to help
+            you better understand market behavior.
+        </p>
+
+    </div>
+
+    <div class="feature-card">
+
+        <h2>
+            AI Insights
+        </h2>
+
+        <p>
+            Receive intelligent market summaries,
+            trend analysis, and automated insights
+            powered by financial analytics to quickly
+            identify bullish momentum, market risks,
+            and potential investment opportunities.
+        </p>
+
+    </div>
+
+</section>
+
+</body>
+
+</html>
