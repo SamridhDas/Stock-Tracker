@@ -1,10 +1,25 @@
 from flask import Flask, render_template, request
 
-from main import analyse
+from main import analyse,create_candlestick_chart
+from flask import redirect
 
 import yfinance as yf
 
 app = Flask(__name__)
+indian_stocks = [
+
+    "TCS",
+    "INFY",
+    "RELIANCE",
+    "HDFCBANK",
+    "ICICIBANK",
+    "SBIN",
+    "WIPRO",
+    "LT",
+    "AXISBANK",
+    "BAJFINANCE",
+    "KOTAKBANK"
+]
 
 
 @app.route("/")
@@ -22,10 +37,13 @@ def compare():
 
         tickers = ticker_input.split(",")
 
-        tickers = [
-            ticker.strip().upper()
-            for ticker in tickers
-        ]
+        formatted_tickers=[]
+        for ticker in tickers:
+            ticker=ticker.strip().upper()
+            if ticker in indian_stocks:
+                ticker=ticker+".NS"
+            formatted_tickers.append(ticker)
+        tickers=formatted_tickers
 
         days = request.form["days"]
 
@@ -46,12 +64,30 @@ def compare():
     return render_template("compare.html")
 
 
+@app.route("/solo", methods=["GET", "POST"])
+def solo():
+
+    if request.method == "POST":
+
+        ticker = request.form["ticker"]
+
+        ticker = ticker.strip().upper()
+        if ticker in indian_stocks:
+            ticker=ticker+".NS"
+
+        return redirect(f"/stock/{ticker}")
+
+    return render_template("solo.html")
+
+
 @app.route("/stock/<ticker>")
 def stock_page(ticker):
 
     stock = yf.Ticker(ticker)
 
     info = stock.info
+    data=stock.history(period="6mo")
+    chart=create_candlestick_chart(data,ticker)
 
     stock_data = {
 
@@ -70,7 +106,7 @@ def stock_page(ticker):
 
     return render_template(
         "stock.html",
-        stock_data=stock_data
+        stock_data=stock_data,chart=chart
     )
 
 

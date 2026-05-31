@@ -15,6 +15,27 @@
 
 </head>
 <body>
+     <nav class="navbar">
+
+        <h2 class="logo">
+            StockStalk
+        </h2>
+
+        <div class="nav-links">
+
+            <a href="/">Home</a>
+
+            <a href="/compare">
+                Compare Stocks
+            </a>
+
+            <a href="/solo">
+                Individual Analysis
+            </a>
+
+        </div>
+
+    </nav>
 
     <h1>
         {{ stock_data.ticker }} Analysis
@@ -63,9 +84,42 @@
             <p>
                 ${{ stock_data.fifty_two_low }}
             </p>
+        
+
+        </div>
+    </section>
+    <section class="hero-candle">
+
+    <h1>
+        CandleStick Chart Analysis
+    </h1>
+
+    <p>
+        Candlestick charts are one of the most widely used tools in
+        technical analysis for understanding stock price movement over
+        time. Each candle represents a specific time period and displays
+        four key pieces of information: the opening price, closing price,
+        highest price, and lowest price. Green candles typically indicate
+        that the stock closed higher than it opened, while red candles
+        indicate a decline in price during that period. By analyzing
+        candle patterns, traders and investors can identify market trends,
+        momentum, volatility, and potential reversal signals to make more
+        informed investment decisions.
+    </p>
+
+</section>
+     
+    <section class="stock-overview">
+        <div class="chart-container">
+
+            {{ chart|safe }}
 
         </div>
 
     </section>
+        
+    
+
+    
 
 </body>

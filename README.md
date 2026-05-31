@@ -1,117 +1,193 @@
 # StockStalk 📈
 
-StockStalk is a modern stock analytics platform built using Flask, Python, and yFinance. The platform allows users to compare multiple stocks, visualize relative market performance, and explore detailed individual stock analytics through interactive dashboards.
+StockStalk is a modern stock analytics platform built using Flask, Python, Plotly, and yFinance. The platform allows users to compare multiple stocks, explore technical analysis indicators, and visualize market trends using interactive financial dashboards.
 
-## Features
+---
 
-### Compare Stocks Dashboard
+# Features
+
+## Multi-Stock Comparison
 
 * Compare multiple stocks side-by-side
-* Interactive normalized performance graphs
-* Relative growth comparison
-* Performance insights panel
-* Best/Worst performer analytics
-* Dynamic multi-stock visualization
+* Relative growth normalization charts
+* Performance insights dashboard
+* Best and worst performer analytics
+* Average market growth calculations
+* Interactive comparison visualizations
 
-### Individual Stock Analysis
+---
+
+## Individual Stock Analysis
 
 * Dedicated stock analysis pages
+* Interactive candlestick charts
+* Moving average overlays (20-Day & 50-Day)
 * Company overview metrics
-* Current price tracking
-* 52-week high and low
-* Market capitalization insights
-* Dynamic routing for stock-specific pages
+* Market capitalization tracking
+* 52-week high and low analysis
+* Technical analysis focused dashboards
 
-### Modern UI/UX
+---
 
-* Responsive dashboard layout
-* Dark theme design
+## Modern UI/UX
+
+* SaaS-inspired landing page
+* Responsive dashboard layouts
+* Dark-themed financial interface
 * Interactive hover animations
-* SaaS-style landing page
-* Feature showcase sections
-* Structured navigation system
+* Feature-based navigation system
+* Structured multi-page architecture
 
-## Tech Stack
+---
 
-### Backend
+# Technical Analysis Features
+
+## Candlestick Charts
+
+Visualize market price movement using interactive candlestick charts displaying:
+
+* Open price
+* Close price
+* High price
+* Low price
+
+These charts help identify:
+
+* market momentum
+* bullish and bearish trends
+* volatility
+* reversal patterns
+
+---
+
+## Moving Averages
+
+StockStalk currently supports:
+
+* 20-Day Moving Average
+* 50-Day Moving Average
+
+These indicators help smooth market noise and identify:
+
+* trend direction
+* momentum shifts
+* support and resistance zones
+
+---
+
+# Tech Stack
+
+## Backend
 
 * Python
 * Flask
 * yFinance
 
-### Frontend
+## Frontend
 
 * HTML
 * CSS
 * Flexbox
 
-### Data Visualization
+## Data Visualization
 
 * Matplotlib
+* Plotly
 
-## Architecture
+---
 
-The application follows a multi-page structure:
+# Application Architecture
 
 ```text
 /               → Landing Page
-/compare        → Stock Comparison Tool
-/stock/<ticker> → Individual Stock Analysis
+/compare        → Multi-Stock Comparison
+/result         → Comparison Results Dashboard
+/solo           → Individual Analysis Search
+/stock/<ticker> → Technical Analysis Dashboard
 ```
 
-## Current Analytics Features
+---
 
-* Relative stock growth normalization
-* Comparative performance analysis
-* Average growth calculations
-* Most expensive stock tracking
-* Market trend insights
-* Performance summaries
+# Supported Markets
 
-## Planned Features
+## US Stocks
 
-* Candlestick charts
-* RSI indicators
+Examples:
+
+* AAPL
+* TSLA
+* GOOGL
+
+## Indian Stocks
+
+StockStalk automatically supports NSE tickers including:
+
+* TCS
+* INFY
+* RELIANCE
+* HDFCBANK
+
+through automatic `.NS` conversion for Yahoo Finance integration.
+
+---
+
+# Planned Features
+
+* RSI (Relative Strength Index)
 * Volatility analysis
-* Moving averages
-* MACD analysis
-* AI-powered stock insights
+* MACD indicators
+* Volume analytics
+* Bollinger Bands
+* AI-generated market insights
 * Portfolio tracking
-* Market news integration
+* News sentiment analysis
+* Watchlists
 
+---
 
-
-## Learning Outcomes
+# Learning Outcomes
 
 This project helped develop skills in:
 
 * Flask web development
-* Dynamic routing
-* Backend architecture
-* Data visualization
-* Dashboard UI design
-* API integration
-* Responsive layouts
-* State/data structuring
+* Multi-page routing architecture
+* Interactive financial visualization
+* Technical analysis implementation
+* Backend data structuring
+* Plotly integration
+* Responsive UI design
+* API-driven applications
+* Financial analytics engineering
 
-## Installation
+---
+
+# Installation
 
 ```bash
 git clone <your-repository-link>
 
 cd StockStalk
 
+python3 -m venv venv
+
+source venv/bin/activate
+
 pip install -r requirements.txt
 
 python app.py
 ```
 
-## Future Vision
+---
 
-StockStalk is evolving into a complete financial analytics platform focused on:
+# Future Vision
 
-* intelligent market visualization
-* technical analysis
-* AI-driven insights
-* interactive financial dashboards
-* scalable analytics systems
+StockStalk is evolving into a full financial analytics platform focused on:
+
+* interactive technical analysis
+* intelligent financial visualization
+* scalable dashboard systems
+* AI-powered market insights
+* professional-grade stock research tools
+
+```
+```

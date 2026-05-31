@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Individual Stock Analysis</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <h2 class="logo">
+            StockStalk
+        </h2>
+
+        <div class="nav-links">
+
+            <a href="/">Home</a>
+
+            <a href="/compare">
+                Compare Stocks
+            </a>
+
+            <a href="/solo">
+                Individual Analysis
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <section class="compare-hero">
+
+        <div class="compare-left">
+
+            <h1>
+                Deep Individual Stock Analysis
+            </h1>
+
+            <p>
+                Explore advanced technical analytics for individual stocks
+                using interactive candlestick charts, volatility tracking,
+                RSI indicators, and detailed market performance metrics
+                designed for deeper investment research and decision-making.
+            </p>
+
+            <div class="compare-features">
+
+                <div class="mini-feature">
+                    📉 Interactive Candlestick Charts
+                </div>
+
+                <div class="mini-feature">
+                    📊 Technical Indicators & RSI
+                </div>
+
+                <div class="mini-feature">
+                    ⚡ Advanced Market Analytics
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="compare-right">
+
+            <div class="compare-form-card">
+
+                <h2>
+                    Analyse A Stock
+                </h2>
+
+                <form method="post">
+
+                    <input
+                        type="text"
+                        name="ticker"
+                        placeholder="Enter Stock Ticker (AAPL, TSLA, GOOGL)">
+
+                    <button type="submit">
+
+                        Analyse Stock
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</body>
+
+</html>

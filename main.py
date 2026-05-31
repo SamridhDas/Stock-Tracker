@@ -1,5 +1,6 @@
 import yfinance as yf
 import matplotlib.pyplot as plt
+import plotly.graph_objects as go
 
 
 def analyse(tickers, days):
@@ -136,4 +137,68 @@ def plot_graph(all_data):
     plt.savefig("static/stock_chart.png")
 
     plt.close()
+def create_candlestick_chart(data, ticker):
+    data["MA20"] = data["Close"].rolling(20).mean()
+
+    data["MA50"] = data["Close"].rolling(50).mean()
+
+    fig = go.Figure()
+    fig.add_trace(
+        go.Candlestick(
+            x=data.index,
+
+            open=data["Open"],
+
+            high=data["High"],
+
+            low=data["Low"],
+
+            close=data["Close"],
+            name="Candlestick"
+        )
+    )
+    fig.add_trace(
+        go.Scatter(
+            x=data.index,
+            y=data["MA20"],
+
+            mode="lines",
+
+            name="20-Day MA",
+            line=dict(color="cyan")
+        )
+    )
+    fig.add_trace(
+        go.Scatter(
+
+            x=data.index,
+
+            y=data["MA50"],
+
+            mode="lines",
+
+            name="50-Day MA",
+            line=dict(color="orange")
+        )
+    )
+    
+
+    fig.update_layout(
+
+        title=f"{ticker} Candlestick Chart",
+
+        template="plotly_dark",
+
+        xaxis_title="Date",
+
+        yaxis_title="Price",
+
+        height=700,
+        width=None,
+        autosize=True
+    )
+
+    chart = fig.to_html(full_html=False,config={"responsive":True})
+
+    return chart
 

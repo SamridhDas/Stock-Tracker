@@ -13,30 +13,94 @@
 </head>
 
 <body>
+    <nav class="navbar">
 
-    <h1>Compare Stocks</h1>
+        <h2 class="logo">
+            StockStalk
+        </h2>
 
-    <div class="form-container">
+        <div class="nav-links">
 
-        <form method="post">
+            <a href="/">Home</a>
 
-            <input type="text"
-                   name="ticker"
-                   placeholder="Enter Stock Tickers (AAPL,TSLA,GOOGL)">
+            <a href="/compare">
+                Compare Stocks
+            </a>
 
-            <input type="number"
-                   name="days"
-                   placeholder="Enter Number Of Days">
+            <a href="/solo">
+                Individual Analysis
+            </a>
 
-            <button type="submit">
+        </div>
 
-                Analyse
+    </nav>
+    
 
-            </button>
 
-        </form>
+  <section class="compare-hero">
+
+    <div class="compare-left">
+
+        <h1>
+            Compare Market Performance
+        </h1>
+
+        <p>
+            Analyze multiple stocks side-by-side using
+            interactive growth charts, performance insights,
+            and normalized comparisons designed to help
+            investors identify trends and outperforming companies.
+        </p>
+
+        <div class="compare-features">
+
+            <div class="mini-feature">
+                📈 Relative Growth Tracking
+            </div>
+
+            <div class="mini-feature">
+                📊 Interactive Analytics
+            </div>
+
+            <div class="mini-feature">
+                ⚡ Real-Time Market Data
+            </div>
+
+        </div>
 
     </div>
+
+    <div class="compare-right">
+
+        <div class="compare-form-card">
+
+            <h2>
+                Compare Stocks
+            </h2>
+
+            <form method="post">
+
+                <input type="text"
+                       name="ticker"
+                       placeholder="Enter Stock Tickers (AAPL,TSLA,GOOGL)">
+
+                <input type="number"
+                       name="days"
+                       placeholder="Enter Number Of Days">
+
+                <button type="submit">
+
+                    Analyse
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
 
 </body>
 

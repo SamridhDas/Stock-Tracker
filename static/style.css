@@ -332,3 +332,200 @@ img{
 
     font-size:18px;
 }
+.compare-hero{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:30px 60px 60px 60px ;
+
+    gap:80px;
+
+    min-height:50vh;
+}
+
+.compare-left{
+
+    flex:1;
+}
+
+.compare-left h1{
+
+    font-size:72px;
+
+    color:#4CAF50;
+
+    line-height:1.1;
+
+    margin-bottom:30px;
+}
+
+.compare-left p{
+
+    font-size:22px;
+
+    color:#cccccc;
+
+    line-height:1.8;
+
+    margin-bottom:40px;
+
+    max-width:700px;
+}
+
+.compare-features{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+}
+
+.mini-feature{
+
+    background:#161616;
+
+    padding:18px 24px;
+
+    border-radius:12px;
+
+    width:100%;
+
+    font-size:18px;
+
+    border:1px solid rgba(255,255,255,0.05);
+}
+
+.compare-right{
+
+    flex:1;
+
+    display:flex;
+
+    justify-content:center;
+}
+
+.compare-form-card{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+
+    background:#161616;
+
+    padding:50px;
+
+    border-radius:20px;
+
+    width:100%;
+
+    max-width:550px;
+    min-height: 550px;
+
+    box-shadow:0px 0px 30px rgba(0,0,0,0.4);
+}
+
+.compare-form-card h2{
+
+    color:#4CAF50;
+
+    margin-bottom:30px;
+
+    text-align:center;
+
+    font-size:42px;
+}
+
+.compare-form-card form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-evenly;
+
+    height:100%;
+
+    gap:35px;
+}
+
+.compare-form-card input,
+.compare-form-card button{
+
+    width:100%;
+
+    height:70px;
+
+    border-radius:12px;
+
+    font-size:22px;
+
+    box-sizing:border-box;
+}
+.compare-form-card button{
+
+    background:#4CAF50;
+
+    color:white;
+
+    border:none;
+
+    cursor:pointer;
+}
+.chart-container{
+
+    width:100%;
+
+    margin-top:50px;
+
+    padding:20px;
+
+    background:#161616;
+
+    border-radius:20px;
+}
+.hero-candle{
+
+    margin-top:70px;
+
+    padding:80px 70px;
+
+    background:#161616;
+
+    border-radius:30px;
+
+    text-align:center;
+
+    box-shadow:0px 0px 40px rgba(0,0,0,0.35);
+    border:1px solid rgba(76,175,80,0.08);
+}
+.hero-candle h1{
+
+    color:#4CAF50;
+
+    font-size:64px;
+
+    margin-bottom:45px;
+
+    line-height:1.2;
+
+    font-weight:700;
+}
+.hero-candle p{
+
+    color:#d6d6d6;
+
+    font-size:28px;
+
+    line-height:1.9;
+
+    max-width:1550px;
+
+    margin:0 auto;
+
+    font-weight:300;
+}
